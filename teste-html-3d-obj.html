@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Model Viewer</title>
+
+</head>
+<body>
+    <style>
+        /* container principal */
+        .container-all{margin: 0 auto; background-color: #e7e7e7; padding: 20px; border-radius: 20px; width: 100%; margin-top: 30px; margin-bottom: 30px; justify-content: center; a{text-decoration: none;}}
+        /* container buttones */
+        .container-all .buttones{width: 90%; display: flex; gap: 30px; align-items: center;  padding: 15px; font-size: 20px; margin: 0 auto; align-items: center; justify-content: center; color: #212121;}
+        .buttones nav{justify-content: center; margin: 0 auto; display: flex;}
+        .buttones nav a{display: flex; width: 100%; padding: 7px 80px; background-color: white; border-radius: 10px; align-items: center; gap: 10px; justify-content: center; transition: 0.3s; p{margin: 0 0 0px; color: #212121;}}
+        .buttones nav a:hover{ transform: scale(1.05);}
+        /* container 3d and video */
+        .container-3d-nd-video{padding-top: 20px; border-radius: 20px !important;}
+        /* container 3d object */
+        .container-3d-object{margin: 0 auto; padding-top: 22px; padding-bottom: 22px; width: 100%; overflow: hidden; object-position: center;}
+        #canvas-container { width: 100%; height: 675px; margin: 0 auto; display: flex; justify-content: center;}
+        /* container de vídeo */
+        .container-video-360 {position: relative; overflow: hidden;width: 100%;height: 720px;max-width: 1200px; margin: 0 auto; display: flex; border-radius: 20px; justify-content: center;}
+        .container-video-360 iframe {position: absolute;width: 100%;height: 720px;border: none; border-radius: 20px; margin: 0 auto;}
+        .player .vp-video-wrapper{border-radius: 10px !important;}
+        /* classes de controle */
+        .display-flex{display: flex;}
+        .display-none{display: none;}
+        .botao-selected{background-color: #e7e7e7 !important; color: #212121;  align-items: center;}
+        @media screen and (min-width: 481px) and (max-width: 1000px) {
+            .buttones{width: 90%; display: flex; flex-direction: row; padding: 10px; gap: 20px !important; margin: 0 auto; justify-content: center;}
+            .buttones nav a{display: flex; width: 100%; padding: 5px 30px; background-color: white; border-radius: 10px; margin: 0 auto; transition: 0.3s;}
+            .botao-selected{background-color: #e7e7e7 !important; color: #212121;}
+            /* container 3d object */
+            .container-3d-object{margin: 0 auto; padding-top: 32px; padding-bottom: 32px; width: 100%; overflow: hidden; object-position: center; object-fit: contain; align-content: center;}
+            #canvas-container { width: 100%; height: 388px; margin: 0 auto; display: flex; justify-content: center; align-content: center; overflow: hidden; object-position: center; object-fit: contain;}
+            .container-video-360 {width: 100%;height: 500px;}
+            .container-video-360 iframe {width: 100%;height: 500px;overflow: hidden;}
+        }
+        @media screen and (max-width: 480px) {
+            .buttones{flex-direction: column;}
+            .container-video-360 {position: relative; overflow: hidden;width: 100%;height: 388px;}
+            .container-video-360 iframe {width: 100%; height: 388px;}
+            #canvas-container { width: 100%; height: 388px;}
+            .container-3d-object{width: 100%; height: 388px;}
+        }
+    </style>
+    <div class="container-all">
+        <div class="buttones">
+            <nav><a id="botao-video" href=""><img width="30px" height="30px" src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/play-button.png" alt=""><p>Video</p></a></nav>
+            <nav><a id="botao-3d-object" href=""><img width="30px" height="30px" src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/3d-view_1_.png" alt=""><p>Visão 3D</p></a></nav>
+        </div>
+    
+        <div class="container-3d-nd-video">
+            <div id="container-3d-object" class="container-3d-object">
+                <div id="canvas-container"></div>
+            </div>
+            <div id="container-video-360" class="container-video-360">
+                <!-- Iframe será inserido aqui via JavaScript para dispositivos desktop -->
+            </div>
+        </div>
+    </div>
+
+
+<!-- Importando Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<!-- Importando GLTFLoader para carregar o modelo .glb -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+<!-- Importando OrbitControls para interatividade -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.js"></script>
+    <!-- HDR -->
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/RGBELoader.js"></script>
+
+<script>
+    // Verificação para dispositivos móveis
+    const isMobile = /Android|iPhone|iPad|iPod|Opera Mini|IEMobile|WPDesktop/i.test(navigator.userAgent);
+
+    if (isMobile) {
+        // Se for dispositivo móvel, esconde o container-all
+        document.addEventListener("DOMContentLoaded", () => {
+            const containerAll = document.querySelector('.container-all');
+            if (containerAll) {
+                containerAll.style.display = 'none';
+            }
+        });
+    } else {
+
+        // Somente em dispositivos não móveis, adiciona o iframe do Vimeo
+        document.addEventListener("DOMContentLoaded", () => {
+        const containerVideo360 = document.getElementById('container-video-360');
+        const iframe = document.createElement("iframe");
+
+        iframe.src = "https://player.vimeo.com/video/1024060153?autoplay=1&loop=1&background=1&muted=1";
+        iframe.frameBorder = "0";
+        iframe.allow = "autoplay; fullscreen; picture-in-picture";
+        iframe.title = "armarios-video-final-28-10-2024";
+        iframe.style.width = "100%";
+        iframe.style.height = "720px"; // Ajuste conforme necessário
+
+        // Adiciona o iframe ao contêiner
+        containerVideo360.appendChild(iframe);
+    });
+
+        // Carrega o script do Vimeo apenas em dispositivos não móveis
+        const vimeoScript = document.createElement("script");
+        vimeoScript.src = "https://player.vimeo.com/api/player.js";
+        document.head.appendChild(vimeoScript);
+
+
+        // Configuração do canvas e da cena
+        const container = document.getElementById('canvas-container');
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(10, 1200 / 675, 0.5, 1000);
+        const renderer = new THREE.WebGLRenderer({ antialias: true });
+        renderer.setSize(1200, 675);
+        renderer.toneMapping = THREE.ACESFilmicToneMapping;
+        renderer.toneMappingExposure = 0.5; // Ajuste de exposição para HDR
+        renderer.outputEncoding = THREE.sRGBEncoding; // Ajuste de precisão de cor para HDR
+        container.appendChild(renderer.domElement);
+        // Luz Direcional - Cantos
+        const directionalLight1 = new THREE.DirectionalLight(0xffffff, 0.01);
+        directionalLight1.position.set(5, 10, 5);
+        scene.add(directionalLight1);
+        const directionalLight4 = new THREE.DirectionalLight(0xffffff, 0.5);
+        directionalLight4.position.set(-5, -10, 5);
+        scene.add(directionalLight4);
+        // Carregar o HDR com PMREMGenerator para reflexão sem aplicá-lo como background
+        const pmremGenerator = new THREE.PMREMGenerator(renderer);
+        pmremGenerator.compileEquirectangularShader();
+        const rgbeLoader = new THREE.RGBELoader();
+        rgbeLoader.load(
+            'https://raw.githubusercontent.com/Marketing-LB-00/teste-tree-js-02/main/huge_softbox_photo_studio_4k.hdr', 
+            (texture) => {
+                texture.mapping = THREE.EquirectangularReflectionMapping;
+                const envMap = pmremGenerator.fromEquirectangular(texture).texture;
+                scene.environment = envMap;  // Aplica o HDR como ambiente de reflexão
+                // Define um fundo de cor sólida (por exemplo, branco ou preto)
+                scene.background = new THREE.Color(0x2c2c2c); // ou qualquer outra cor
+                texture.dispose();
+                pmremGenerator.dispose(); // Libera recursos para melhor performance
+            }
+        );
+        // Carregar o modelo GLB
+        const loader = new THREE.GLTFLoader();
+        loader.load(
+            'https://cdn.jsdelivr.net/gh/Marketing-LB-00/teste-tree-js-02@main/pia-com-gaveta-28-10-2024-02.glb',
+            function (gltf) {
+                const model = gltf.scene;
+                model.position.set(0, -0.5, 0.1);
+                model.rotation.x = Math.PI / 45;
+        
+                // Ajuste de material para aparência metálica
+                model.traverse((node) => {
+                    if (node.isMesh) {
+                        const material = new THREE.MeshPhysicalMaterial({
+                            metalness: 1,
+                            roughness: 0.5,
+                            clearcoat: 1.0,
+                            clearcoatRoughness: 0.05,
+                            envMap: scene.environment,
+                        });
+                    }
+                });
+                scene.add(model);
+            },
+            undefined,
+            function (error) {
+                console.error('Erro ao carregar o modelo:', error);
+            }
+        );
+        // Configuração da câmera
+        camera.position.set(2, 1, 7);
+        // Adicionando controles de órbita para interação
+        const controls = new THREE.OrbitControls(camera, renderer.domElement);
+        controls.enableDamping = true;
+        controls.dampingFactor = 0.05;
+        // Adicionando luz de partícula dinâmica
+        const particleLight = new THREE.PointLight(0xffffff, 1.5);
+        particleLight.position.set(0, 2, 2);
+        scene.add(particleLight);
+        function animateLight() {
+            const time = Date.now() * 0.001;
+            particleLight.position.x = Math.sin(time * 0.7) * 3;
+            particleLight.position.y = Math.cos(time * 0.5) * 3;
+            particleLight.position.z = Math.cos(time * 0.3) * 3;
+        }
+        // Função de animação
+        function animate() {
+            requestAnimationFrame(animate);
+            animateLight();
+            controls.update();
+            renderer.render(scene, camera);
+        }
+        animate();
+    }
+</script>
+    
+<script>
+    // Seleciona os botões e os containers
+    const botaoVideo = document.getElementById('botao-video');
+    const botao3DObject = document.getElementById('botao-3d-object');
+    const containerVideo = document.getElementById('container-video-360');
+    const container3DObject = document.getElementById('container-3d-object');
+
+    // Função para alternar os containers
+    function mostrarContainerVideo() {
+        containerVideo.classList.add('display-flex');
+        containerVideo.classList.remove('display-none');
+        container3DObject.classList.add('display-none');
+        container3DObject.classList.remove('display-flex');
+        botaoVideo.classList.add('botao-selected');
+        botao3DObject.classList.remove('botao-selected');
+    }
+
+    function mostrarContainer3DObject() {
+        container3DObject.classList.add('display-flex');
+        container3DObject.classList.remove('display-none');
+        containerVideo.classList.add('display-none');
+        containerVideo.classList.remove('display-flex');
+        botao3DObject.classList.add('botao-selected');
+        botaoVideo.classList.remove('botao-selected');
+    }
+
+    // Event listeners para os botões
+    botaoVideo.addEventListener('click', (e) => {
+        e.preventDefault(); // Impede o comportamento padrão do link
+        mostrarContainerVideo();
+    });
+
+    botao3DObject.addEventListener('click', (e) => {
+        e.preventDefault(); // Impede o comportamento padrão do link
+        mostrarContainer3DObject();
+    });
+
+    // Exibe inicialmente o vídeo
+    mostrarContainerVideo();
+</script>
+
+
+
+</body>
+</html>
