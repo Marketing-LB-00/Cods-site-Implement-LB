@@ -2,5 +2,5 @@
 h1,h2,h3{border-bottom: none;}
 
 h2.titulo-colorido{font-family: "Lato", sans-serif; text-decoration: none; font-weight: 700; text-align: center; color:#212121; }
-h2.titulo-colorido span{background: linear-gradient(var(--text-gradient-rotation), var(--text-gradient-color-1), var(--text-gradient-color-2));background-clip: text; color: rgba(0, 0, 0, 0); --text-gradient-rotation: 101.87deg; --text-gradient-color-1: #5b382b 13.05%; --text-gradient-color-2: #d07f18 71.74%; }
+h2.titulo-colorido span{font-weight: 900; background: linear-gradient(var(--text-gradient-rotation), var(--text-gradient-color-1), var(--text-gradient-color-2));background-clip: text; color: rgba(0, 0, 0, 0); --text-gradient-rotation: 101.87deg; --text-gradient-color-1: #5b382b 13.05%; --text-gradient-color-2: #d07f18 71.74%; }
 
