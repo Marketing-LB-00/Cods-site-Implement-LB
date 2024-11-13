@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');    
 h1,h2,h3{border-bottom: none;}
 
-h2.titulo-colorido{font-family: "Lato", sans-serif; text-decoration: none; font-weight: 900; }
+h2.titulo-colorido{font-family: "Lato", sans-serif; text-decoration: none; font-weight: 900; text-align: center;}
 h2.titulo-colorido span{background: linear-gradient(var(--text-gradient-rotation), var(--text-gradient-color-1), var(--text-gradient-color-2));background-clip: text; color: rgba(0, 0, 0, 0); --text-gradient-rotation: 101.87deg; --text-gradient-color-1: #5b382b 13.05%; --text-gradient-color-2: #d07f18 71.74%; }
 
