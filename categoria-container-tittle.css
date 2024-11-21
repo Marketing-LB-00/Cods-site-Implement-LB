@@ -3,6 +3,11 @@
     .container-grid-tittle{display: grid; grid-template-columns: 3fr 2fr; max-width: 964px; margin: 0 auto; align-items: center; img{border-radius: 20px; width: 90%; height: auto; margin: 0 auto; display: flex;} p{text-align: right; } nav{text-align: right; a{text-decoration: none; margin-right: 30px; text-align: right; color: #d07f18; background-color: #212121; font-family: "Lato", sans-serif; font-size: 0.9em; font-weight: 500; padding: 3px 20px; border-radius: 7px; transition: 0.3s; position: relative;}}  a:hover{color: #ffffff; background-color: #d07f18;}}
     .container-grid-tittle nav a::after {content: ">";color: #ffffff;font-weight: bold;margin-left: 2px;opacity: 0;transform: scaleX(0.5) !important;transition: opacity 0.3s ease, transform 0.3s ease;}
     .container-grid-tittle nav a:hover::after {   content: ">";opacity: 1;transform: scaleX(1.2) !important;}
+    /* container 02 - img à esquerda */
+    .container-grid-tittle-esq{display: grid; grid-template-columns: 2fr 3fr; max-width: 964px; margin: 0 auto; align-items: center; img{border-radius: 20px; width: 90%; height: auto; margin: 0 auto; display: flex;} p{text-align: left; } nav{text-align: left; a{text-decoration: none; margin-right: 30px; text-align: left; color: #d07f18; background-color: #212121; font-family: "Lato", sans-serif; font-size: 0.9em; font-weight: 500; padding: 3px 20px; border-radius: 7px; transition: 0.3s; position: relative;}}  a:hover{color: #ffffff; background-color: #d07f18;}}
+    .container-grid-tittle-esq nav a::after {content: ">";color: #ffffff;font-weight: bold;margin-left: 2px;opacity: 0;transform: scaleX(0.5) !important;transition: opacity 0.3s ease, transform 0.3s ease;}
+    .container-grid-tittle-esq nav a:hover::after {   content: ">";opacity: 1;transform: scaleX(1.2) !important;}
+    /* container 02 - img à esquerda */
     .container-widgets{display: grid; grid-template-columns: 1fr 1fr 1fr; max-width: 964px; margin: 0 auto; gap: 5px 20px;}
     .widget-text-icons{margin: 0 auto; width: 90%; background-color: #f5f5f5; border-radius: 10px; display: grid; grid-template-columns: 1fr 2fr; padding: 5px 20px; justify-content: center; align-items: center; div{img{grid-column: 1; width: 50px; height: auto; opacity: 0.8;} margin: 0 auto;} p{grid-column: 2; text-align: left;} }
     @media screen and (max-width:768px) {
