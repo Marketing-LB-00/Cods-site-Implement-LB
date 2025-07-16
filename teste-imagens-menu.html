@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu produtos</title>
+</head>
+<body>
+
+
+<!--- Parte dos menus somente de texto - custom-menu-cubas -->  
+<style>
+.grid-header-menu>.menu-container-lists-grid ul{  flex: none;  list-style: none;margin: 0;margin-bottom: 5px; padding: 0;background: #ffffff;border: 1px solid #e0e0e0;border-radius: 5px;overflow: hidden;/* faz o corte das bordas inferiores */}
+.grid-header-menu .menu-container-lists-grid ul li {/* a borda entre itens */border-bottom: 1px solid #e0e0e0;}
+/* Remove a última borda */
+.grid-header-menu .menu-container-lists-grid ul li:last-child {border-bottom: none;}
+/* Link tocável ocupando todo o espaço */
+.grid-header-menu .menu-container-lists-grid ul li a {display: flex; justify-content: space-between; width: 333px; align-items: center; padding: 8px 12px;color: #0d0d0d;text-decoration: none;font-size: 14px;}
+.grid-header-menu .menu-container-lists-grid ul li a:hover {background: #f5f5f5;color: #d07f18;}
+/* 1) Remova o <p> interno ou zere seu margin/padding */
+.grid-header-menu .menu-container-lists-grid ul li a p {margin: 0;padding: 0;display: inline;}
+/* 3) Se precisar diminuir o gap texto–ícone */
+.grid-header-menu .menu-container-lists-grid ul li a img {margin: 0;}
+.menu-container-lists-grid { display: flex; align-items: flex-start; gap: 10px;}
+
+.container-header-menu-02 {padding: 10px; width: 100%;background: #f5f5f5;display: grid;grid-template-columns: 1fr; gap: 20px;}
+@media screen and (min-width: 1700px){.grid-header-menu .menu-container-lists-grid ul li a {width: 333px;}}
+@media screen and (min-width: 1500px) and (max-width: 1699px){.grid-header-menu .menu-container-lists-grid ul li a {width: 275px;}}
+@media screen and (min-width: 1400px) and (max-width: 1499px){.grid-header-menu .menu-container-lists-grid ul li a {width: 255px; padding: 6px 8px; font-size: 12px;}}
+@media screen and (min-width: 1300px) and (max-width: 1399px){.grid-header-menu .menu-container-lists-grid ul li a {width: 240px; padding: 6px 8px; font-size: 12px;}}
+@media screen and (min-width: 1200px) and (max-width: 1299px){.grid-header-menu .menu-container-lists-grid ul li a {width: 225px; padding: 6px 8px; font-size: 12px;}}
+@media screen and (min-width: 1000px) and (max-width: 1199px){.sub-menu-static-block {width: 100% !important;}.grid-header-menu .menu-container-lists-grid ul li a {width: 255px; padding: 4px 6px; font-size: 12px;}.menu-container-lists-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px;}}
+@media screen and (min-width: 900px) and (max-width: 999px){.sub-menu-static-block {width: 100% !important;}.grid-header-menu .menu-container-lists-grid ul li a {width: 275px; padding: 4px 6px; font-size: 11px;}.menu-container-lists-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px;}}
+@media screen and (max-width: 899px){.grid-header-menu .menu-container-lists-grid ul li a {width: 275px; padding: 4px 6px; font-size: 11px;}.menu-container-lists-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px;}}
+</style>
+
+<div class="menu-wrapper">
+    <div class="container-header-menu-02">
+        <!-- Menu lateral permanece igual -->
+        <div class="grid-header-menu">
+            <div class="menu-container-lists-grid">
+                <ul>
+                    <li>
+                        <a href="https://www.lojabrazil.com.br/cuba"><p>Ver todos</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a>        
+                    </li>
+                </ul>
+                <ul>
+                    <li><a href="https://www.lojabrazil.com.br/cuba/tampas-aco-inox#menu=cuba"><p><strong>Tampas</strong></p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                </ul>
+                <ul>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p><strong>Cubas Gastronômicas</strong></p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p><strong>Cubas Aço Inox</strong></p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/1</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/2</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/3</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/4</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/6</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/9</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 2/3</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                </ul>
+                <ul>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p><strong>Cubas Policarbonato</strong></p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/1</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/2</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/3</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/4</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/6</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                    <li><a href="https://www.lojabrazil.com.br/tanque-pia-industrial/tanque-pia-industrial-201"><p>Cuba Gastronômicas GN 1/9</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!--- Parte dos menus somente de texto - custom-menu-cubas -->  
+
+
+
+
+
+
+<!--- Parte dos menus com Imagens de Textos - custom-menu-armarios-aco-inox -->  
+<style>
+.menu-wrapper {display: flex !important;justify-content: center !important;padding-top: 20px;}
+.container-header-menu {padding: 10px; width: 100%;background: #f5f5f5;display: grid;grid-template-columns: 2fr 3fr; gap: 20px;}
+.grid-header-menu>.menu-container-lists ul{  list-style: none;margin: 0;margin-bottom: 5px; padding: 0;background: #ffffff;border: 1px solid #e0e0e0;border-radius: 5px;overflow: hidden;}
+.grid-header-menu .menu-container-lists ul li {border-bottom: 1px solid #e0e0e0;}
+.grid-header-menu .menu-container-lists ul li:last-child {border-bottom: none;}
+.grid-header-menu .menu-container-lists ul li a {display: flex; justify-content: space-between; align-items: center; padding: 8px 12px;color: #0d0d0d;text-decoration: none;font-size: 14px;}
+.grid-header-menu .menu-container-lists ul li a:hover {background: #f5f5f5;color: #d07f18;}
+.grid-header-menu .menu-container-lists ul li a p {margin: 0;padding: 0;display: inline;}
+.grid-header-menu .menu-container-lists ul li a img {margin: 0;}
+.menu-container-lists { ul{list-style-type: none; margin-top: 10px; margin-bottom: 10px; padding-bottom: 10px; li{ a{color: #0d0d0d; text-decoration: none; } a:hover{color: #d07f18;}} }}
+.menu-container-cards {display: grid;grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));gap: 5px;}
+/* Card individual */
+.card {position: relative; display: block; background: #fff;border: 1px solid #e0e0e0;border-radius: 6px;overflow: hidden; text-decoration: none; color: inherit; transition: transform .2s;}
+.card:hover { transform: translateY(-4px); }
+.card-image-wrapper {position: relative;width: 100%;padding-top: 100%; overflow: hidden;}
+.card-image-wrapper img {position: absolute; top: 0;left: 0; width: 100%;height: 100%; object-fit: contain; transition: opacity 0.4s ease;}
+.card-image-wrapper img.default {opacity: 1;z-index: 1;}
+.card-image-wrapper img.hover {opacity: 0;z-index: 2;}
+.card:hover .card-image-wrapper img.default {opacity: 0;}
+.card:hover .card-image-wrapper img.hover {opacity: 1;}
+
+/* Badges no topo */
+.card .badge {position: absolute;top: 8px;left: 8px;background: #d07f18;color: #fff;z-index: 3; font-size: 10px;padding: 2px 6px;border-radius: 3px;text-transform: uppercase;margin-right: 4px;}
+.card .badge.discount {right: 8px;left: auto;background: #0055a5; z-index: 3;}
+
+/* Imagem */
+.card img {display: block;width: 100%;height: auto;}
+
+/* Conteúdo do card */
+.card-content {padding: 8px;}
+.card-content .title {font-size: 13px;line-height: 1.2;height: 2.4em; overflow: hidden;margin-bottom: 6px;}
+.card-content .prices {font-size: 12px;margin-bottom: 4px;}
+.card-content .prices .old {text-decoration: line-through;color: #888;margin-right: 6px;}
+.card-content .prices .new {font-weight: bold;color: #0a6fba;}
+.card-content .installment {font-size: 10px;color: #333;}
+
+/* Outros elementos */
+.sub-menu-static-block > .row > .col-md-12 > .col-md-2{display: none !important;} /*Botão ver todos*/
+.sub-menu-static-block > .row > .col-md-12 > .col-sm-3{display: none !important;} /*Botão ver todos*/
+.col-sm-3 { width: 25%;}
+.container-fluid {padding-right: 5px !important;padding-left: 5px !important;margin-right: auto; margin-left: auto;}
+.sub-menu { border-radius: 5px !important; border-bottom: none !important; background-color: #f5f5f5 !important;}
+.sub-menu-static-block{position: fixed !important; width: 80% !important; left: 50% !important; transform: translateX(-50%) !important; float: inline-start; margin:0 auto !important; }
+
+@media (max-width: 900px) {
+  .menu-container-cards {grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));justify-items: center;}
+  .menu-container-cards .card {max-width: 280px; width: 100%;}
+}
+</style>
+<div class="menu-wrapper">
+<div class="container-header-menu">
+    <!-- Menu lateral permanece igual -->
+    <div class="grid-header-menu">
+        <div class="menu-container-lists">
+            <ul>
+                <li>
+                    <a href="https://www.lojabrazil.com.br/armarios-aco-inox"><p>Ver todos</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a>        
+                </li>
+            </ul>
+            <ul>
+                <li><a href="https://www.lojabrazil.com.br/armarios-aco-inox/armarios-com-portas-de-correr"><p>Armários com Portas de Correr</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+                <li><a href="https://www.lojabrazil.com.br/armarios-aco-inox/armarios-frente-aberta-aco-inox"><p>Armários abertos</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a></li>
+            </ul>
+            <ul>
+                <li>
+                    <a href="https://www.lojabrazil.com.br/armarios-aco-inox/gaveteiros-aco-inox/"><p>Gaveteiros</p><img src="https://www.lojabrazil.com.br/media/wysiwyg/categorias/right.png" width="15px" height="15px" /></a>        
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="grid-header-menu-02">
+        <div class="menu-container-cards">
+
+            <!-- Card Exemplo -->
+            <a class="card" href="https://www.lojabrazil.com.br/armario-aco-inox-com-espelho-e-1-prateleira-interna-e-2-portas-de-correr-100x70x90cm-brascool.html">
+                <!-- Badges -->
+                <span class="badge">Lançamento</span>
+                <span class="badge discount">-23%</span>
+                <!-- Imagem do produto -->
+                   <!-- Imagens sobrepostas -->
+                <div class="card-image-wrapper">
+                    <img class="default" src="https://www.lojabrazil.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/m/e/mesa-espelho-porta-de-correr-100x70x90cm-diagon.jpg" alt="imagem de um armário em aço inox">
+                    <img class="hover" src="https://www.lojabrazil.com.br/media/catalog/product/cache/1/image/1000x/040ec09b1e35df139433887a97daa66f/m/e/mesa-espelho-porta-de-correr-100x70x90cm-diagon-medidas.jpg" alt="imagem de um armário em aço inox">
+                </div>
+                <!-- Conteúdo -->
+                <div class="card-content">
+                <p class="title">Armário inox com espelho e 2 portas de correr – 100×70×90cm</p>
+                <div class="prices">
+                    <span class="old">R$ 4.799,00</span>
+                    <span class="new">R$ 3.719,10</span>
+                </div>
+                <p class="installment">ou 10× de R$ 371,90 sem juros</p>
+                </div>
+            </a>
+
+            <!-- Card Exemplo -->
+            <a class="card" href="https://www.lojabrazil.com.br/armario-aco-inox-com-1-prateleira-interna-200x70x90cm-brascool.html">
+                <!-- Badges -->
+                <span class="badge">Lançamento</span>
+                <span class="badge discount">-22%</span>
+
+                <!-- Imagem do produto -->
+                <div class="card-image-wrapper">
+                    <img class="default" src="https://www.lojabrazil.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/r/armario-aco-inox-aberto-200x70x90cm-diagon.jpg" alt="imagem de um armário em aço inox">
+                    <img class="hover" src="https://www.lojabrazil.com.br/media/catalog/product/cache/1/image/1000x/040ec09b1e35df139433887a97daa66f/a/r/armario-aco-inox-aberto-200x70x90cm-diagon-medidas.jpg" alt="imagem de um armário em aço inox">
+                </div>
+
+
+                <!-- Conteúdo -->
+                <div class="card-content">
+                <p class="title">Armário Aço Inox Com 1 Prateleira Interna - 200x70x90cm - Brascool</p>
+                <div class="prices">
+                    <span class="old">R$ 6.490,00</span>
+                    <span class="new">R$ 5.049,10</span>
+                </div>
+                <p class="installment">ou 10× de R$ 504,90 sem juros</p>
+                </div>
+            </a>
+            <!-- Card Exemplo -->
+            <a class="card" href="https://www.lojabrazil.com.br/armario-aco-inox-com-espelho-e-1-prateleira-interna-150x70x90cm-brascool.html">
+                <!-- Badges -->
+                <span class="badge">Lançamento</span>
+                <span class="badge discount">-22%</span>
+
+                <!-- Imagem do produto -->
+                <div class="card-image-wrapper">
+                    <img class="default" src="https://www.lojabrazil.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/a/r/armario-espelho-aco-inox-aberto-150x70x90cm-diagon.jpg" alt="imagem de um armário em aço inox">
+                    <img class="hover" src="https://www.lojabrazil.com.br/media/catalog/product/cache/1/image/1000x/040ec09b1e35df139433887a97daa66f/a/r/armario-espelho-aco-inox-aberto-150x70x90cm-diagon-medidas.jpg" alt="imagem de um armário em aço inox">
+                </div>
+
+
+                <!-- Conteúdo -->
+                <div class="card-content">
+                <p class="title">Armário Aço Inox Com Espelho E 1 Prateleira Interna - 150x70x90cm - Brascool</p>
+                <div class="prices">
+                    <span class="old">R$ 5.209,00</span>
+                    <span class="new">R$ 4.039,10</span>
+                </div>
+                <p class="installment">ou 10× de R$ 403,90 sem juros</p>
+                </div>
+            </a>
+
+            <!-- Card Exemplo -->
+            <a class="card" href="https://www.lojabrazil.com.br/gaveteiro-aco-inox-com-3-gavetas-50x51x75cm-brascool.html">
+                <!-- Badges -->
+                <span class="badge">Lançamento</span>
+                <span class="badge discount">-20%</span>
+
+                <!-- Imagem do produto -->
+                <div class="card-image-wrapper">
+                    <img class="default" src="https://www.lojabrazil.com.br/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/g/a/gaveteiro-03-gavetas-02-04-2025.jpg" alt="imagem de um armário em aço inox">
+                    <img class="hover" src="https://www.lojabrazil.com.br/media/catalog/product/cache/1/image/1000x/040ec09b1e35df139433887a97daa66f/g/a/gaveteiro-03-gavetas-02-04-2025-medidas.jpg" alt="imagem de um armário em aço inox">
+                </div>
+
+
+                <!-- Conteúdo -->
+                <div class="card-content">
+                <p class="title">Gaveteiro Aço Inox Com 3 Gavetas - 50x51x75cm - Brascool</p>
+                <div class="prices">
+                    <span class="old">R$ 2.999,00</span>
+                    <span class="new">R$ 2.399,10</span>
+                </div>
+                <p class="installment">ou 10× de R$ 239,90 sem juros</p>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+</div>
+<!--- Parte dos menus com Imagens de Textos - custom-menu-armarios-aco-inox -->  
+
+</body>
+</html>
+
+
+
